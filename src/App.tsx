@@ -1,3 +1,10 @@
+import { GlobalStyles } from './styles/global';
+
 export const App = () => {
-  return <h1>Padaria Scans</h1>;
+  return (
+    <>
+      <GlobalStyles />
+      <h1>Padaria Scans</h1>
+    </>
+  );
 };
