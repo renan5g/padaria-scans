@@ -12,8 +12,9 @@ export const theme = {
 
     bgColor: '#F0F0F5',
 
-    shapesBg: '#FFFFFF',
-    shapesLine: '#DCDDE0',
+    shapes: '#FFFFFF',
+    shapesSecondary: '#F0F0F5',
+    shapesTernary: '#DCDDE0',
 
     linear: 'linear-gradient(90deg, #f8941c 5%, #ffc43b 75%)',
     shadow: '0 5px 25px rgba(0,0,0,0.05)',
