@@ -12,12 +12,11 @@ type Props = {
   schema: Yup.ObjectSchema<any>;
 };
 
-export const Form = ({ onSubmit, data, children, schema }: Props) => {
+export default function Form({ data, schema, children, onSubmit }: Props) {
   const {
     handleSubmit,
     getValues,
     register,
-    reset,
     formState: { errors },
   } = useForm({
     defaultValues: data,
@@ -26,29 +25,13 @@ export const Form = ({ onSubmit, data, children, schema }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* {Array.isArray(children)
-        ? children?.map((child) => {
-            return child.props.name
-              ? React.createElement(child.type, {
-                  ...{
-                    ...child.props,
-                    register,
-                    getValue: getValues,
-                    errors,
-                    key: child.props.name,
-                  },
-                })
-              : child;
-          })
-        : children} */}
-
       {Array.isArray(children)
         ? children.map((child) => {
             return child.props.name
               ? React.createElement(child.type, {
                   ...{
                     ...child.props,
-                    register: register,
+                    register,
                     getValue: getValues,
                     errors: errors,
                     key: child.props.name,
@@ -59,4 +42,4 @@ export const Form = ({ onSubmit, data, children, schema }: Props) => {
         : children}
     </form>
   );
-};
+}
