@@ -7,6 +7,7 @@ import { MdPerson, MdSearch } from 'react-icons/md';
 import { Form, Input } from '@/components/Form';
 
 import * as S from './styles';
+import regex from '@/helpers/regex';
 
 type Data = {
   username: string;
@@ -18,7 +19,7 @@ export const Auth = () => {
 
   const schema = Yup.object().shape({
     username: Yup.string().required(),
-    password: Yup.string().required(),
+    password: Yup.string().matches(regex.password).required(),
   });
 
   const onSubmit = ({ username, password }: Data) => {
@@ -33,6 +34,14 @@ export const Auth = () => {
           placeholder="Username"
           icon={<MdPerson size={20} color="#6C6C80" />}
         />
+        <Input
+          name="email"
+          placeholder="Username"
+          icon={<MdPerson size={20} color="#6C6C80" />}
+        />
+        <Input name="password" placeholder="Password" />
+
+        <button>Submit</button>
       </Form>
       <Outlet />
     </S.Container>
